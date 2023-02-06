@@ -7,7 +7,7 @@ Proyecto "Workout World": E-commerce dedicado a la venta de productos nutriciona
 Aclaraciones para proximos Commits:
 
 Falta agregar las imagenes para los modelos de Productos y Entrenadores(en el codigo se trabaja a los entrenadores desde la aplicacion clients).
-Expandir proyecto para cuestiones como "detalle de producto" o "contactarse con el entrenador"
-Buscarle al model Category un proposito
-Mejorar el panel de administracion
-Mejorar el Front
+- Expandir proyecto para cuestiones como "detalle de producto" o "contactarse con el entrenador"
+- Buscarle al model Category un proposito
+- Mejorar el panel de administracion
+- Mejorar el Front
