@@ -1,0 +1,65 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Entrenadores
+{% endblock %}
+
+{% block content%}
+
+<h2 style="text-align: center;text-decoration: underline;">Servicio de Personal Trainers</h2>
+<br>
+
+<h5 style="text-align: center;">Tener un Personal Trainer que se enfoque tanto en la pérdida, estabilidad y aumento de peso es una gran ventaja para cualquier persona que busque mejorar su condicion fisica</h5>
+<br>
+<h5 style="text-align:center">Ellos pueden ayudarte definiendo objetivos realistas y brindando un plan de entrenamiento personalizado para alcanzarlos. Además, te proporcionan un seguimiento constante mantenerte enfocado en tus metas.</h5>
+
+
+<br>
+<h2 style="text-align: center;text-decoration: underline;">Tipos de Entrenadores</h2>
+<br>
+
+<h5 style="text-align: center;"> Premium: Tendras acceso a un número ilimitado de sesiones, lo que permite tener una rutina de entrenamiento más flexible y ajustada a las necesidades individuales.</h5>
+<h5 style="text-align: center;"> Normal: Tendras un número limitado de sesiones por mes, lo que puede restringir la capacidad para alcanzar los objetivos de tu entrenamiento.</h5>
+
+
+<br>
+<h2 style="text-align: center;text-decoration: underline;">Entrenadores</h2>
+<br>
+
+{% for client in object_list %}
+
+<div class="card" style="width: 18rem;justify-content: center;left: 640px;width: 400px;">
+    <img src="..." class="card-img-top" alt="...">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center;">{{client.nombre}}</h5>
+      <p class="card-text" style="text-align: center;">{{client.email}}</p>
+      <p class="card-text" style="text-align: center;">{{client.tipo}}</p>
+      <p class="card-text" style="text-align: center;">{{client.detalle}}</p>
+      <p class="card-text" style="text-align: center;">Cobra:${{client.sueldo}}</p>
+        {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser%}
+        <div class="d-flex justify-content-center">
+          <a href="/clients/update_client/{{client.id}}" class="btn btn-dark">Actualizar</a>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+          <a href="/clients/delete_client/{{client.id}}" class="btn btn-dark">Borrar</a>
+        </div>
+        {% endif %}
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+  {% if request.user.is_superuser %}
+  <div class="d-flex justify-content-center">
+      <a href="/clients/create_client/" class="btn btn-dark">Crear Nuevo Entrenador</a>
+  </div>
+  {%endif %}
+{% endif %}
+
+{% endblock %}

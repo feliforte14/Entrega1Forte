@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body style="background-color:#CCCCCC">
+ 
+
+
+  <header>
+    <nav class="navbar navbar-expand-lg navbar-light" style="background-color: black;">
+        <a class="navbar-brand" style="color: aliceblue;" href="/">Inicio</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" style="color: aliceblue;" href="/products/list_categories/">Categorias</a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" style="color: aliceblue;" href="/products/list_products/">Productos</a>
+            </li>
+
+            <li class="nav-item active">
+              <a class="nav-link" style="color: aliceblue;" href="/clients/list_clients/">Entrenadores</a>
+            </li>  
+
+            <li class="nav-item active" style="margin-right: 250px;">
+              <a class="nav-link" style="color: aliceblue;" href="/nosotros/">Nosotros</a>
+              </li>
+            {% if request.user.is_authenticated %}
+            <li class="nav-item active">
+              <a class="nav-link" style="color: aliceblue;" href="/user/update/profile">Perfil</a>
+            </li>  
+            <li class="nav-item active">
+              <a class="nav-link" style="color: aliceblue;" href="/user/update">{{request.user.username}}</a>
+            </li>
+                {% if request.user.profile.profile_picture.url != '' %}
+                  <img src="{{request.user.profile.profile_picture.url}}" alt="profile_picture" width="50px" height="50px">
+                {% endif %}
+                <li class="nav-item active">
+                  <a class="nav-link" style="color: aliceblue;" href="/user/logout">Logout</a>
+                </li>
+                {% else %}
+            <li class="nav-item active">
+              <a class="nav-link" style="color: aliceblue;" href="/user/login">Login</a>
+            </li>  
+
+            <li class="nav-item active" style="margin-right: 250px;">
+              <a class="nav-link" style="color: aliceblue;" href="/user/signup">Signup</a>
+            </li>
+            {% endif %} 
+          </ul>
+
+          <form class="form-inline my-2 my-lg-0" action="/products/list_products/" method="GET">
+            <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" name="search">
+            <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+          </form>
+        </div>
+      </nav>
+</header>
+
+<br>
+<h1 class="display-2" style="text-align: center; font-family: Arial; text-decoration: underline;">Workout World</h1>
+
+
+
+{% block content %}
+
+{% endblock %}
+
+
+<footer class="text-center text-white" style="background-color: black;margin-top: 300px;">
+  <!-- Grid container -->
+  <div class="container p-4 pb-0" style="background-color: black;">
+    <!-- Section: Social media -->
+    <section class="mb-4">
+      <!-- Instagram -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.instagram.com/fe.forte/" role="button"
+        ><i class="fab fa-instagram">Instagram</i
+      ></a>
+  
+      <!-- Linkedin -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://www.linkedin.com/in/felipe-forte-7ba9691b3/" role="button"
+        ><i class="fab fa-linkedin-in">Linkedin</i
+      ></a>
+  
+      <!-- Github -->
+      <a class="btn btn-outline-light btn-floating m-1" href="https://github.com/feliforte14" role="button"
+        ><i class="fab fa-github">Github</i
+      ></a>
+    </section>
+    </div>
+</footer>
+<script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-Fy6S3B9q64WdZWQUiU+q4/2Lc9npb8tCaSX9FK7E8HnRr0Jz8D6OP9dO5Vg3Q9ct" crossorigin="anonymous"></script>
+</body>
+</html>

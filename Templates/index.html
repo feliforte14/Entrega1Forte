@@ -1,0 +1,52 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Inicio
+{% endblock %}
+
+{% block content%}
+
+<br>
+
+{% if message %}
+<h2 style="text-align: center;">{{message}}</h2>
+{% endif %}
+
+<br>
+<h4 style="text-align: center;">Descubre el secreto de un cuerpo en forma en nuestra tienda de gimnasio. Ofrecemos una amplia selección de equipos de alta calidad y suplementos nutricionales para ayudarte a alcanzar tus objetivos de entrenamiento. ¡Visítanos hoy y 
+    comienza tu camino hacia un estilo de vida más saludable!
+</h4>
+
+<br>
+<div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Servicio de Personal Trainers</h5>
+      <p class="card-text">Alcanza tus metas de entrenamiento con la ayuda de nuestros Personal Trainers Especializados. Tendrás acceso a sesiones personalizadas con entrenadores altamente capacitados. ¡Mejora tus habilidades, aumenta tu fuerza y alcanza tus objetivos con nuestro programa de entrenamiento de alta calidad!</p>
+      <a href="clients/list_clients/" class="btn btn-dark">Conocer Más</a>
+    </div>
+  </div>
+<br>
+
+<br>
+<div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Productos</h5>
+      <p class="card-text">¿Estás buscando los mejores productos para tu entrenamiento en el gimnasio? ¡Mira lo que tenemos en nuestra tienda de gimnasio! Ofrecemos una amplia selección de productos de alta calidad para ayudarte a alcanzar tus objetivos de acondicionamiento físico. </p>
+      <a href="products/list_products" class="btn btn-dark">Conocer Más</a>
+    </div>
+  </div>
+<br>
+
+<br>
+
+<div class="card text-center">
+    <div class="card-body">
+      <h5 class="card-title">Asociate</h5>
+      <p class="card-text">Ser socio de Workout World tiene muchos beneficios y ventajas. Por ejemplo, puedes recibir descuentos tanto en la compra de productos como en servicios como clases grupales o entrenamientos personalizados.¡Ser socio es la manera perfecta de ahorrar dinero y aprovechar al máximo tus entrenamientos!</p>
+      <a href="user/signup/" class="btn btn-dark">Crear una cuenta</a>
+    </div>
+  </div>
+<br>
+
+
+{% endblock%}

@@ -1,0 +1,33 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Register
+{% endblock %}
+
+{% block content%}
+
+<h1 style="text-align: center;">Completa los datos para registrarte</h1>
+<br>
+{% if form %}
+    <div class="d-flex justify-content-center" style="max-width: 1700px;">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+
+            <br>
+         <input type="submit" value="Crear Perfil">
+        </form>
+</div>
+{% endif %}
+
+
+    {% if errors%}
+
+        {{errors}}
+
+    {% endif %}
+
+
+{% endblock%}

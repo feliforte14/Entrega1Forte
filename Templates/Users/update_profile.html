@@ -1,0 +1,32 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Actualizacion de Perfil de Usuario
+{% endblock %}
+
+{% block content%}
+
+<h2 style="text-align: center;">Actualizacion de Perfil</h2>
+<br>
+
+    {% if form %}
+    <div class="d-flex justify-content-center" style="max-width: 1700px;">
+        <form action="" method="POST" enctype="multipart/form-data">
+            {% csrf_token %}
+            <table>
+                {{form.as_table}}
+            </table>
+            <input type="submit" value="Actualizar">
+        </form>
+    </div>
+    {% endif %}
+
+
+    {% if errors%}
+
+        {{errors}}
+
+    {% endif %}
+
+
+{% endblock%}

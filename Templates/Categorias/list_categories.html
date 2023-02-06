@@ -1,0 +1,46 @@
+{% extends 'base.html'%}
+
+{% block title %}
+  Categorias
+{% endblock %}
+
+{% block content%}
+
+<h2 style="text-align: center;text-decoration: underline;">Categorias</h2>
+<br>
+
+
+{% for category in object_list %}
+  <div class="card" style="width: 18rem;justify-content: center;left: 640px;width: 400px;">
+    <div class="card-body">
+      <h5 class="card-title" style="text-align: center;">{{category.name}}</h5>
+      {% if request.user.is_authenticated %}
+        {% if request.user.is_superuser%}
+        <div class="d-flex justify-content-center">
+          <a href="/products/update_category/{{category.id}}" class="btn btn-dark" >Actualizar</a>
+        </div>
+        <br>
+        <div class="d-flex justify-content-center">
+          <a href="/products/delete_category/{{category.id}}" class="btn btn-dark" >Borrar</a>
+        </div>
+        {% endif %}
+      {% endif %}
+      </div>
+  </div>
+    
+{% endfor%}
+
+<br>
+<br>
+<br>
+{% if request.user.is_authenticated %}
+  {% if request.user.is_superuser%}
+  <div class="d-flex justify-content-center">
+    <a href="/products/create_category/" class="btn btn-dark">Crear Nueva Categoria</a>
+  </div>
+  {% endif %}
+{% endif %}
+
+{% endblock %}   
+
+    

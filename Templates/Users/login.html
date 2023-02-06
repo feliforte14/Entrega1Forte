@@ -1,0 +1,30 @@
+{% extends 'base.html'%}
+
+{% block title %}
+Login
+{% endblock %}
+
+{% block content%}
+
+<h1 style="text-align: center;">Ingresa tus datos para loguearte</h1>
+<br>
+{% if form %}
+<div class="d-flex justify-content-center" style="max-width: 1700px;">
+    <form action="" method="POST" style="text-align: center;">
+        {% csrf_token %}
+        <table>
+            {{form.as_table}}
+        </table>
+
+        {% if error %}
+            <p style="color:red">{{error}}</p>
+        {% endif %}
+        <br>
+    <input type="submit" value="Ingresar">
+    </form>
+</div>
+
+{% endif %}
+
+
+{% endblock%}

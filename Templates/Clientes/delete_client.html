@@ -1,0 +1,27 @@
+
+{% extends 'base.html'%}
+
+{% block title%}
+Eliminacion de Entrenadores
+{% endblock%}
+
+{% block content%}
+
+{% if request.user.is_authenticated %}
+    {% if request.user.is_superuser%}
+        <h2 style="text-align: center;text-decoration: underline;">Eliminacion de Entrenador</h2>
+        <br>
+
+        <div class="d-flex justify-content-center">
+            <h2>Borrar: {{object.name}}</h2>
+        </div>
+        <div class="d-flex justify-content-center">
+            <form action="" method="POST">
+                {% csrf_token %}
+                <input type="submit" value="Borrar">
+            </form>
+        </div>
+    {% endif %}
+{% endif %}
+
+{% endblock%}
